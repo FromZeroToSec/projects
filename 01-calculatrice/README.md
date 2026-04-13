@@ -4,20 +4,15 @@ Premier projet Python — calculatrice basique avec inputs utilisateur.
 
 ## Ce que ça fait
 * Demande deux nombres à l'utilisateur
-* Additionne les deux nombres
-* Affiche le résultat
+* Demande l'opération souhaitée (+, -, ÷, x)
+* Effectue le calcul et affiche le résultat
 
-## Usage
-```bash
-python main.py
-```
 
 ## Exemple
-```
-Enter the first number to add: 5
-Enter the second number to add: 3
-The result of your addition 5+3 is 8
-```
+Enter the first number: 5
+Enter your operation (+,-,÷,x): +
+Enter the second number: 3
+Result: 5.0 + 3.0 = 8.0
 
 ## Statut
-✅ V1 terminée — addition fonctionnelle
+✅ V1 terminée — addition, soustraction, division, multiplication
