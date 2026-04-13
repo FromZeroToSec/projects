@@ -7,6 +7,10 @@ Premier projet Python — calculatrice basique avec inputs utilisateur.
 * Demande l'opération souhaitée (+, -, ÷, x)
 * Effectue le calcul et affiche le résultat
 
+## Usage
+```bash
+python main.py
+```
 
 ## Exemple
 Enter the first number: 5
