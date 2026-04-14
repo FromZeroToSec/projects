@@ -18,5 +18,7 @@ Enter your operation (+,-,÷,x): +
 Enter the second number: 3
 Result: 5.0 + 3.0 = 8.0
 
+
 ## Statut
 ✅ V1 terminée — addition, soustraction, division, multiplication
+fix division zéro
