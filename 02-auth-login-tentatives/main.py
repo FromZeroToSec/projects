@@ -1,19 +1,24 @@
-tentatives = 0
-max_tentatives = 3
-while tentatives < 3:
-    utilisateur = input("Entrez votre identifiant ").lower()
-    password = input("Entrez votre mot de passe ")
+# Initialisation du compteur et du maximum de tentatives
+attempts = 0
+max_attempts = 3
 
-    if utilisateur == "mehdi" and password == "MotDePasseTest123": # TODO : ne jamais stocker un mot de passe en clair — à hasher en production
-        print("Accès autorisé")
+# Boucle qui autorise 3 essais maximum
+while attempts < max_attempts:
+    username = input("Enter your username: ").lower()
+    password = input("Enter your password: ")
+
+# Vérification des identifiants (toujours en clair pour l'instant)
+    if username == "mehdi" and password == "MotDePasseTest123":
+        print("Access Authorized")
         break
     else:
-        print("Accès refusé")
-        tentatives += 1
-    if max_tentatives > 0:
-        max_tentatives -= 1
-        print (f"Il vous reste {max_tentatives} tentative ")
+        print("Access denied")
+        attempts += 1
 
+# Affichage du décompte des tentatives restantes  
+        remaining = max_attempts - attempts
+        print(f"Remaining attempts: {remaining}")
 
+# Message affiché si les 3 tentatives sont épuisées
 else:
-    print("COMPTE BLOQUÉ")
+    print("ACCOUNT LOCKED")
