@@ -1,4 +1,5 @@
 # Auth Login Tentatives
+
 Système d'authentification en ligne de commande avec tentatives limitées — Python débutant.
 
 ## Fonctionnalités
@@ -6,6 +7,7 @@ Système d'authentification en ligne de commande avec tentatives limitées — P
 - **Décompte en temps réel** : Affiche le nombre d'essais restants après chaque erreur.
 - **Compte bloqué** : Accès verrouillé après 3 échecs consécutifs.
 - **Identifiant flexible** : Insensible à la casse (majuscules/minuscules).
+- **Option de sortie** : Taper `exit` au username ou password quitte le programme proprement.
 
 ## Installation & Usage
 ```bash
@@ -15,7 +17,8 @@ python main.py
 ```
 
 ## Concepts utilisés
-- **Boucle while/else** : Pour gérer les essais et le blocage final.
-- **Conditions if/else** : Pour vérifier les identifiants et gérer l'affichage.
-- **F-strings** : Pour afficher dynamiquement le nombre de tentatives restantes.
+- **Boucle while/else** : Gestion des essais et blocage final.
+- **Conditions if/else** : Vérification des identifiants.
+- **Constantes** : Credentials stockés en haut du fichier, séparés de la logique.
+- **F-strings** : Affichage dynamique des tentatives restantes.
 - **Input utilisateur** : Récupération et nettoyage des données (`.lower()`).

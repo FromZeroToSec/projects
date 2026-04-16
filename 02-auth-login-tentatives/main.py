@@ -1,28 +1,38 @@
-#Variable Identifiant et mot de passe
+# Variable stored 
 USERNAME = "mehdi"
 PASSWORD = "MotDePasseTest123"
+EXIT = "exit"
 
-# Initialisation du compteur et du maximum de tentatives
+# Attempt counter and maximum attempts
 attempts = 0
 max_attempts = 3
 
-# Boucle qui autorise 3 essais maximum
+# Loop allowing 3 attempts maximum
 while attempts < max_attempts:
-    username = input("Enter your username: ").lower()
-    password = input("Enter your password: ")
+    username = input("Exit to quit. \nEnter your username : ").lower()
+    
+    # Check if user wants to exit
+    if username == EXIT:
+        print("Exiting...")
+        break
 
-# Vérification des identifiants (toujours en clair pour l'instant)
+    password = input("Exit to quit. \nEnter your password :")
+    
+    # Check if user wants to exit
+    if password == EXIT:
+        print("Exiting...")
+        break
+
+    # Verify 
     if username == USERNAME and password == PASSWORD:
         print("Access Authorized")
         break
     else:
-        print("Access denied")
         attempts += 1
-
-# Affichage du décompte des tentatives restantes  
         remaining = max_attempts - attempts
+        print("Access denied")
         print(f"Remaining attempts: {remaining}")
 
-# Message affiché si les 3 tentatives sont épuisées
+# Message displayed if all attempts are exhausted
 else:
     print("ACCOUNT LOCKED")
