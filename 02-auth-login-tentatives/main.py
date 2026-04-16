@@ -1,3 +1,7 @@
+#Variable Identifiant et mot de passe
+USERNAME = "mehdi"
+PASSWORD = "MotDePasseTest123"
+
 # Initialisation du compteur et du maximum de tentatives
 attempts = 0
 max_attempts = 3
@@ -8,7 +12,7 @@ while attempts < max_attempts:
     password = input("Enter your password: ")
 
 # Vérification des identifiants (toujours en clair pour l'instant)
-    if username == "mehdi" and password == "MotDePasseTest123":
+    if username == USERNAME and password == PASSWORD:
         print("Access Authorized")
         break
     else:
