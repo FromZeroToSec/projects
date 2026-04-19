@@ -25,10 +25,6 @@ cd 02-auth-login-tentatives-
 python main.py
 ```
 
-**Demo credentials:**
-- Username: `mehdi`
-- Password: `MotDePasseTest123`
-
 ---
 
 ## What This Demonstrates
