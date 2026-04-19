@@ -1,6 +1,8 @@
+import hashlib
+
 # Variable stored 
 USERNAME = "mehdi"
-PASSWORD = "MotDePasseTest123"
+PASSWORD_HASH = "6b45bad95dcfac6d300d431f153be6e7fe6286b3ae0484bd374b6f300214b0d8"
 EXIT = "exit"
 
 # Attempt counter and maximum attempts
@@ -24,7 +26,7 @@ while attempts < max_attempts:
         break
 
     # Verify 
-    if username == USERNAME and password == PASSWORD:
+    if username == USERNAME and hashlib.sha256(password.encode()).hexdigest() == PASSWORD_HASH:
         print("Access Authorized")
         break
     else:
