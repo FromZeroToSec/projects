@@ -1,3 +1,15 @@
+def add(a,b):
+    return a + b 
+def subtract(a,b):
+    return a - b
+def multiply(a,b):
+    return a * b
+def divide(a,b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return None
+    
 # Boucle principale
 while True:
     
@@ -15,27 +27,26 @@ while True:
 
         # Effectue le calcul
         if operation == "+":
-            result = int(a) + int(b)
+            result = add(int(a), int(b))
+
         elif operation == "-":
-            result = int(a) - int(b)
+            result = subtract(int(a), int(b))
+
         elif operation == "/":
-            if int(b) == 0:
-                result = None
-                print("Error: division by zero.")
-            else:
-                result = int(a) / int(b)
+            result = divide(int(a), int(b))
+
         elif operation == "*":
-            result = int(a) * int(b)
+            result = multiply(int(a) , int(b))
         else:
             result = None
 
-        # Affiche le résultat
+    # Affiche le résultat
         if result is not None:
             print(f"Result: {a} {operation} {b} = {result}")
         else:
-            print("Error: invalid operation.")
-
-        # Continuer ?
+            print("Error: division by zero or invalid operation.")
+    # Continuer ?
         again = input("Again? (y/n): ").lower()
         if again == "n":
             break
+        print("-" * 50)
