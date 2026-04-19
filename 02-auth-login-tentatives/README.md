@@ -1,24 +1,49 @@
-# Auth Login Tentatives
+# 02 — Auth Login Tentatives
 
-Système d'authentification en ligne de commande avec tentatives limitées — Python débutant.
+A command-line authentication system built in Python.  
+The user has 3 attempts to enter the correct credentials. After 3 failures, the account is locked.  
+Passwords are never stored in plain text — SHA-256 hashing is used via the `hashlib` module.
 
-## Fonctionnalités
-- **3 tentatives maximum** : L'utilisateur a trois chances pour se connecter.
-- **Décompte en temps réel** : Affiche le nombre d'essais restants après chaque erreur.
-- **Compte bloqué** : Accès verrouillé après 3 échecs consécutifs.
-- **Identifiant flexible** : Insensible à la casse (majuscules/minuscules).
-- **Option de sortie** : Taper `exit` au username ou password quitte le programme proprement.
+---
+
+## Features
+
+- Maximum 3 login attempts with attempt counter
+- Password hashed with SHA-256 (no plain text storage)
+- Exit option available at any prompt (`exit`)
+- Account locked message after all attempts are exhausted
+
+---
 
 ## Installation & Usage
+
+**Requirements:** Python 3.x
+
 ```bash
-git clone https://github.com/FromZeroToSec/02-auth-login-tentatives
-cd 02-auth-login-tentatives
+git clone https://github.com/FromZeroToSec/02-auth-login-tentatives-.git
+cd 02-auth-login-tentatives-
 python main.py
 ```
 
-## Concepts utilisés
-- **Boucle while/else** : Gestion des essais et blocage final.
-- **Conditions if/else** : Vérification des identifiants.
-- **Constantes** : Credentials stockés en haut du fichier, séparés de la logique.
-- **F-strings** : Affichage dynamique des tentatives restantes.
-- **Input utilisateur** : Récupération et nettoyage des données (`.lower()`).
+**Demo credentials:**
+- Username: `mehdi`
+- Password: `MotDePasseTest123`
+
+---
+
+## What This Demonstrates
+
+- Python control flow (loops, conditions, break)
+- Secure password handling with `hashlib` SHA-256
+- Input validation and user feedback
+- Clean project structure with conventional commits
+
+---
+
+## Project Structure
+
+```
+02-auth-login-tentatives/
+├── main.py        # Main application
+└── .gitignore     # Python gitignore
+```
