@@ -41,10 +41,11 @@ def run_quiz():
     answer = input("Your answer: ")
     return service, answer , port
 
+
+service, answer , port = run_quiz()
 while True:
     attempts = 0
     while attempts < max_attempts:
-        service, answer , port = run_quiz()
         if service == answer:
             print("You Win ! ")
             again = input(f"Play again? (y/n): ").lower()
