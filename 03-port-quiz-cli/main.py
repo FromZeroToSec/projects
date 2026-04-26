@@ -36,26 +36,65 @@ def run_quiz():
     print(f"What service runs on port {port}?")
     return service, port
 
+def reverse_quiz():
+    service = choice(list(PORTS.values()))
+    for k, v in PORTS.items():
+        if v == service:
+            print(f"What port is associated with {service}?")
+            return service, k
+
 
 while True:
-    service, port = run_quiz()
-    attempts = 0
+    mode = input("Welcome,Choose your mode:\n1. Find the service\n2. Find the port\n> ")
+    if mode not in ["1", "2"]:
+        print("Select a mode with 1 or 2")
+        continue
+    print(50*"-")
+    if mode == "1": 
+        service, port = run_quiz()
+        attempts = 0
 
-    while attempts < max_attempts:
-        answer = input("Your answer: ").lower()
-        if answer == service:
-            print("🔥 You Win!")
+        while attempts < max_attempts:
+            answer = input("Your answer: ").lower()
+            if answer == service:
+                print("🔥 You Win!")
+                print(50*"-")
+                break
+            else:
+                attempts += 1
+                remaining = max_attempts - attempts
+                print(f"❌ Wrong! {remaining} attempt(s) left")
+                if attempts == 2:
+                    print(f"The first letter of service is {service[0].upper()}")
+
+        if attempts == max_attempts:
+            print(f" You lose! The correct answer was: {service}")
+
+        again = input("Play again? (y/n): ").lower()
+        if again == "n":
             break
-        else:
-            attempts += 1
-            remaining = max_attempts - attempts
-            print(f"❌ Wrong! {remaining} attempt(s) left")
-            if attempts == 2:
-                print(f"The first letter of service is {service[0].upper()}")
+    elif mode == "2":
+        service, port = reverse_quiz()
+        attempts = 0
 
-    if attempts == max_attempts:
-        print(f" You lose! The correct answer was: {service}")
-
-    again = input("Play again? (y/n): ").lower()
-    if again == "n":
-        break
+        while attempts < max_attempts:
+            try:
+                answer = int(input("Your answer: "))
+                if answer == port:
+                    print("🔥 You Win!")
+                    print(50*"-")
+                    break
+                else:
+                    attempts += 1
+                    remaining = max_attempts - attempts
+                    print(f"❌ Wrong! {remaining} attempt(s) left")
+                    if attempts == 2:
+                        print(f"The first digit of the port is {str(port)[0]}")  
+            except ValueError:
+                print("Please enter a valid number.")
+        if attempts == max_attempts:
+            print(f" You lose! The correct answer was: {port}")
+        again = input("Play again? (y/n): ").lower()
+        if again == "n":
+            break  
+        print(50*"-")
