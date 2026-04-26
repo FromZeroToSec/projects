@@ -1,7 +1,5 @@
 from random import choice
 
-
-
 PORTS = {
     21: "FTP",
     22: "SSH",
@@ -30,37 +28,34 @@ PORTS = {
     22222: "SSH-alt",
 }
 
-attempts = 0
 max_attempts = 5
 
 def run_quiz():
     port = choice(list(PORTS.keys()))
-    service = PORTS[port]
-        
+    service = PORTS[port].lower()
     print(f"What service runs on port {port}?")
-    answer = input("Your answer: ")
-    return service, answer , port
+    return service, port
 
 
-service, answer , port = run_quiz()
 while True:
+    service, port = run_quiz()
     attempts = 0
-    while attempts < max_attempts:
-        if service == answer:
-            print("You Win ! ")
-            again = input(f"Play again? (y/n): ").lower()
-            if again == "n":
-                break
-        else:
-            attempts +=1
-            remaining = max_attempts - attempts
-            print(f"You have {remaining} attempt(s) left")
 
-            if remaining == 0:
-                print(f"You lose! The correct answer was {port}")
-                again = input("Play again? (y/n): ").lower()
-                if again == "n":
-                    break
+    while attempts < max_attempts:
+        answer = input("Your answer: ").lower()
+        if answer == service:
+            print("🔥 You Win!")
+            break
+        else:
+            attempts += 1
+            remaining = max_attempts - attempts
+            print(f"❌ Wrong! {remaining} attempt(s) left")
+            if attempts == 2:
+                print(f"The first letter of service is {service[0].upper()}")
+
+    if attempts == max_attempts:
+        print(f" You lose! The correct answer was: {service}")
+
+    again = input("Play again? (y/n): ").lower()
     if again == "n":
         break
-    
