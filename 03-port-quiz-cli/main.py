@@ -1,5 +1,6 @@
 from random import choice
 
+# Dictionary mapping port numbers to their associated service names
 PORTS = {
     21: "FTP",
     22: "SSH",
@@ -30,6 +31,7 @@ PORTS = {
 
 max_attempts = 5
 
+# Select a random port and ask the user to identify the service
 def run_quiz():
     port = choice(list(PORTS.keys()))
     service = PORTS[port].lower()
@@ -46,6 +48,7 @@ def reverse_quiz():
 
 while True:
     mode = input("Welcome,Choose your mode:\n1. Find the service\n2. Find the port\n> ")
+# Validate mode input    
     if mode not in ["1", "2"]:
         print("Select a mode with 1 or 2")
         continue
