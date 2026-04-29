@@ -1,7 +1,3 @@
-
-
-
-
 def check_length(password):
     return len(password) >= 8
 
@@ -15,7 +11,7 @@ def check_special(password):
     return any(not c.isalnum() for c in password)
 
 def get_score(password):
-    return check_digit(password)+check_length(password)+check_special(password)+check_upper(password)
+    return check_digit(password) + check_length(password) + check_special(password) + check_upper(password)
 
 def get_strength(score): 
     if score >= 4:
@@ -26,10 +22,14 @@ def get_strength(score):
         return "Weak"
     elif score == 1:
         return "Very Weak"
-    else: return "Too Weak"
+    else: 
+        return "Too Weak"
 
-def main ():
+def main():
     password = input("What is your password? ")
+    while not check_length(password):
+        print("Too short !")
+        password = input("What is your password? ")
     score = get_score(password)
     print("Password strength: " + get_strength(score))
 
