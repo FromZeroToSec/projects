@@ -26,11 +26,20 @@ def get_strength(score):
         return "Too Weak"
 
 def main():
-    password = input("What is your password? ")
-    while not check_length(password):
-        print("Too short !")
+    while True:
         password = input("What is your password? ")
-    score = get_score(password)
-    print("Password strength: " + get_strength(score))
+        while not check_length(password):
+            print("Too short !")
+            password = input("What is your password? ")
+        score = get_score(password)
+        print("Password strength: " + get_strength(score))
+        again = input("Again? (y/n) ").lower()
+        if again == "n":
+            break
+
+
+
+
+
 
 main()
