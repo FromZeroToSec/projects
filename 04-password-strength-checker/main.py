@@ -34,12 +34,11 @@ def main():
         score = get_score(password)
         print("Password strength: " + get_strength(score))
         again = input("Again? (y/n) ").lower()
+        while again != "n" and again != "y":
+            print("Invalid input")
+            again = input("Again? (y/n) ").lower()
         if again == "n":
+            print("Goodbye")
             break
-
-
-
-
-
-
+        
 main()
