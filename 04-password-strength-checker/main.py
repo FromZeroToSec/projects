@@ -33,6 +33,7 @@ def main():
             password = input("What is your password? ")
         score = get_score(password)
         print("Password strength: " + get_strength(score))
+        print(get_feedback(password))
         again = input("Again? (y/n) ").lower()
         while again != "n" and again != "y":
             print("Invalid input")
@@ -41,4 +42,15 @@ def main():
             print("Goodbye")
             break
         
+
+def get_feedback(password):
+    missing = []
+    if not check_upper(password):
+        missing.append("uppercase")
+    if not check_digit(password):
+        missing.append("digit")
+    if not check_special(password):
+        missing.append("special")   
+    return "Missing: " + ", ".join(missing)
+    
 main()
