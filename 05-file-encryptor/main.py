@@ -16,4 +16,12 @@ def encrypt_file(file_name):
         file.write(encrypted)#Write the encrypted file
 
 generate_key()#Call the function  
-encrypt_file("test.txt")#Call the function
+
+def decrypt_file(file_name):
+    with open("secret.key","rb") as key_file:#Open the file, "rb" for binary
+        key = key_file.read()#read the file
+    with open(file_name,"rb") as file:#Open the file, "rb" for binary
+        fernet = Fernet(key)#Create the Fernet object
+        decrypted = fernet.decrypt(file.read())#Decrypt the file
+    with open(file_name,"wb") as file:#Open the file, "wb" for binary
+        file.write(decrypted)#Write the decrypted file
