@@ -12,10 +12,9 @@ def encrypt_file(file_name):
     with open(file_name,"rb") as file:#Open the file, "rb" for binary:
         fernet = Fernet(key)#Create the Fernet object
         encrypted = fernet.encrypt(file.read())#Encrypt the file
-    with open (file_name,"wb") as file:#Open the file, "wb" for binary
+    with open(file_name,"wb") as file:#Open the file, "wb" for binary
         file.write(encrypted)#Write the encrypted file
 
-generate_key()#Call the function  
 
 def decrypt_file(file_name):
     with open("secret.key","rb") as key_file:#Open the file, "rb" for binary
@@ -25,3 +24,18 @@ def decrypt_file(file_name):
         decrypted = fernet.decrypt(file.read())#Decrypt the file
     with open(file_name,"wb") as file:#Open the file, "wb" for binary
         file.write(decrypted)#Write the decrypted file
+
+def main():
+    answer = input("What you want to do?\n1. Generate key\n2. Encrypt file\n3. Decrypt file\n")
+    if answer == "1":
+        generate_key()
+    elif answer == "2":
+        user_file = input("Enter the file path: ")
+        encrypt_file(user_file)
+    elif answer == "3":
+        user_file = input("Enter the file path: ")
+        decrypt_file(user_file)
+    else:
+        print("Invalid option")
+
+main()#Run the program
