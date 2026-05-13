@@ -1,33 +1,36 @@
-from cryptography.fernet import Fernet # Module for encryption
+from cryptography.fernet import Fernet 
 
 
 def generate_key():
-    key = Fernet.generate_key()# Generate the key
-    with open("secret.key","wb") as file:# Write the key, "wb" for binary
-        file.write(key)#Write the key to the file
+    """Generates a key and saves it to a file."""
+    key = Fernet.generate_key()
+    with open("secret.key","wb") as file:# wb = write binary
+        file.write(key)
 
 def encrypt_file(file_name):    
+    """Encrypts a file in place using Fernet."""    
     try:
-        with open("secret.key","rb") as key_file:  #Open the file, "rb" for binary
-            key = key_file.read() #read the file
-        with open(file_name,"rb") as file:#Open the file, "rb" for binary:
-            fernet = Fernet(key)#Create the Fernet object
-            encrypted = fernet.encrypt(file.read())#Encrypt the file
-        with open(file_name,"wb") as file:#Open the file, "wb" for binary
-            file.write(encrypted)#Write the encrypted file
+        with open("secret.key","rb") as key_file:  # rb = read binary
+            key = key_file.read() 
+        with open(file_name,"rb") as file:
+            fernet = Fernet(key)
+            encrypted = fernet.encrypt(file.read())
+        with open(file_name,"wb") as file:# wb = write binary
+            file.write(encrypted)
     except FileNotFoundError:
         print("Error: file not found")
 
 
 def decrypt_file(file_name):
+    """Decrypts a file in place using Fernet."""
     try:
-        with open("secret.key","rb") as key_file:#Open the file, "rb" for binary
-            key = key_file.read()#read the file
-        with open(file_name,"rb") as file:#Open the file, "rb" for binary
-            fernet = Fernet(key)#Create the Fernet object
-            decrypted = fernet.decrypt(file.read())#Decrypt the file
-        with open(file_name,"wb") as file:#Open the file, "wb" for binary
-            file.write(decrypted)#Write the decrypted file
+        with open("secret.key","rb") as key_file:# rb = read binary
+            key = key_file.read()
+        with open(file_name,"rb") as file:
+            fernet = Fernet(key)
+            decrypted = fernet.decrypt(file.read())
+        with open(file_name,"wb") as file:# wb = write binary
+            file.write(decrypted)
     except FileNotFoundError:
         print("Error: file not found")
 
@@ -47,4 +50,4 @@ def main():
         else:
             print("Invalid option")
 
-if __name__ == "__main__": main()
+if __name__ == "__main__": main() 
