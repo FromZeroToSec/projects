@@ -1,4 +1,5 @@
-def encrypt(text,shift):
+def encrypt(text, shift):
+    """Encrypt a text using Caesar cipher with the given shift."""
     result = ""
     for letter in text:
         if letter.isupper():
@@ -8,4 +9,8 @@ def encrypt(text,shift):
         else:
             result += letter    
     return result      
-print(encrypt("Hello World!", 3))
+
+
+def decrypt(text, shift):
+    """Decrypt a text using Caesar cipher with the given shift."""
+    return encrypt(text, -shift)
