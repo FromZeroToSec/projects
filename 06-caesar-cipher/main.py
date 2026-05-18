@@ -1,3 +1,7 @@
+"""
+A simple Caesar cipher CLI tool.
+Encrypt and decrypt text using the ancient rotation method.
+"""
 def encrypt(text, shift):
     """Encrypt a text using Caesar cipher with the given shift."""
     result = ""
@@ -5,10 +9,10 @@ def encrypt(text, shift):
         if letter.isupper():
             result += chr((ord(letter) - ord('A') + shift) % 26 + ord('A'))
         elif letter.islower():
-            result += chr((ord(letter) - ord('a') + shift) % 26 + ord('a')) 
+            result += chr((ord(letter) - ord('a') + shift) % 26 + ord('a'))
         else:
             result += letter 
-    return result    
+    return result
 
 
 def decrypt(text, shift):
@@ -17,10 +21,15 @@ def decrypt(text, shift):
 
 
 def main():
+    """
+    Main function of the program
+    that allows the user to encrypt and decrypt text using the Caesar cipher.
+    """
     while True:
         print("1. Encrypt")
         print("2. Decrypt")
         print("3. Exit")
+        print(50*"-")
         choice = input("Enter your choice: ")
         if choice == "1":
             text = input("Enter the text: ")
@@ -42,5 +51,5 @@ def main():
             print("Invalid choice. Please try again.")
 
 
-if __name__ == "__main__":
+if __name__ =="__main__":
     main()
