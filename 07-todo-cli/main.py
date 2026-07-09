@@ -25,5 +25,33 @@ def save_tasks(tasks):
         json.dump(tasks, file)
     print("The file has been saved.")
 
+def main():
+    """Main function of the program."""
+    tasks = load_tasks()
+    while True:
+        print("1. Add a task")
+        print("2. List tasks")
+        print("3. Save tasks")
+        print("4. Exit")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            task = input("Enter the task: ")
+            task = task.strip()
+            if not task:
+                print("The task cannot be empty. Please try again.")
+                continue
+            add_task(task, tasks)
+        elif choice == "2":
+            print("Tasks:")
+            for i, task in enumerate(tasks):
+                print(f"{i + 1}. {task}")
+        elif choice == "3":
+            save_tasks(tasks)
+        elif choice == "4":
+            save_tasks(tasks)
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
-
+if __name__ == "__main__":
+    main()
