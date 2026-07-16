@@ -1,3 +1,5 @@
+import string
+
 def open_file (filename):
     try:
         with open(filename, "r") as f:
@@ -6,16 +8,10 @@ def open_file (filename):
         print("Error: file not found")
         return ""
 
-
-
-
-
-
-
-
-
-#Feuille de route — 08-word-frequency-counter Lecture fichier (en cours) : fonction qui lit un fichier texte et retourne le contenu (gestion FileNotFoundError)
-#Nettoyage + split : découper le texte en mots (lowercase, ponctuation retirée)
-#Comptage fréquence : dictionnaire {mot: nombre d'occurrences}
-#Tri + affichage top N : afficher les mots les plus fréquents
-#Main + interface CLI : demander le nom du fichier, afficher résultat, if __name__ == "__main__":
+def clean_text(raw_text):
+    words = raw_text.lower().split()
+    clean_words = []
+    for word in words:
+        word = word.strip(string.punctuation)
+        clean_words.append(word)
+    return clean_words
