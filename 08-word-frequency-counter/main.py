@@ -15,3 +15,14 @@ def clean_text(raw_text):
         word = word.strip(string.punctuation)
         clean_words.append(word)
     return clean_words
+
+def count_words(words):
+    word_count = {}
+    for word in words:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+    return word_count
+        
+
