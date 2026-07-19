@@ -36,7 +36,7 @@ def display_top_words (word_count, n):
         print(f"{word}: {count}")
 
 def main():
-    filename = "text.txt"
+    filename = input("Enter the name of the file: ")
     raw_text = open_file(filename)
     words = clean_text(raw_text)
     word_count = count_words(words)
