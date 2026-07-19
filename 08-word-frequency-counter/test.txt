@@ -1,0 +1,23 @@
+Python is a powerful programming language. Python is widely used in cybersecurity, automation, and data analysis. Many developers choose Python because Python is simple to read and simple to write.
+
+Security is a critical concern in modern software development. Every developer should understand security best practices. Security starts with clean code, and clean code starts with good habits.
+
+DevSecOps combines development, security, and operations into a single workflow. DevSecOps teams automate security checks early in the pipeline. Automation reduces human error, and automation saves time.
+
+A firewall protects a network from unauthorized access. A firewall inspects incoming and outgoing traffic. Without a firewall, a network is exposed to attackers.
+
+Encryption protects sensitive data. Encryption transforms readable data into unreadable data. Only someone with the correct key can reverse encryption and read the original data.
+
+A password should be strong, unique, and never reused. A weak password is one of the most common security vulnerabilities. Password managers help users generate and store strong passwords safely.
+
+Git is a version control system used by developers worldwide. Git tracks changes, Git enables collaboration, and Git makes rollback easy when something breaks.
+
+A script can automate repetitive tasks. A well-written script saves hours of manual work. Automation, testing, and monitoring are core pillars of DevSecOps.
+
+Linux is the operating system of choice for many security professionals. Linux offers flexibility, transparency, and powerful command-line tools. Learning Linux is essential for anyone pursuing a career in cybersecurity.
+
+A vulnerability scanner searches for weaknesses in a system. A vulnerability left unpatched can be exploited by an attacker. Patching vulnerabilities quickly reduces overall risk.
+
+Networking fundamentals matter. Understanding how packets travel across a network helps identify anomalies. A network engineer and a security analyst often work closely together.
+
+Python, security, automation, Linux, networking. These five words summarize an entire career path — Python, security, automation, Linux, networking!
