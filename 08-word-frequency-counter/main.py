@@ -35,4 +35,13 @@ def display_top_words (word_count, n):
     for word, count in top_words:
         print(f"{word}: {count}")
 
+def main():
+    filename = "text.txt"
+    raw_text = open_file(filename)
+    words = clean_text(raw_text)
+    word_count = count_words(words)
+    display_top_words(word_count, 10)
 
+
+if __name__ == "__main__":
+    main()
