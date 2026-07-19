@@ -35,10 +35,23 @@ def display_top_words (word_count, n):
     for word, count in top_words:
         print(f"{word}: {count}")
 
+
+def remove_stopwords(words):
+    stop_words_en = ["a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "is", "it", "of", "on", "or", "that", "the", "this", "to", "was", "were", "will", "with"]
+    stop_words_fr = ["le", "la", "les", "un", "une", "des", "et", "ou", "de", "du", "à", "en", "est", "que", "qui", "pour", "dans", "sur", "avec", "ce", "cette", "ces", "il", "elle", "je", "tu", "nous", "vous", "se"]
+    stop_words = stop_words_en + stop_words_fr
+    filtered_words = []
+    for word in words:
+        if word not in stop_words:
+            filtered_words.append(word)
+    return filtered_words
+
+
 def main():
     filename = input("Enter the name of the file: ")
     raw_text = open_file(filename)
     words = clean_text(raw_text)
+    words = remove_stopwords(words)
     word_count = count_words(words)
     display_top_words(word_count, 10)
 
