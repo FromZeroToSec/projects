@@ -1,6 +1,7 @@
 import string
 
 def open_file (filename):
+    """Open a file and return its content"""
     try:
         with open(filename, "r") as f:
             return f.read()
@@ -9,6 +10,7 @@ def open_file (filename):
         return ""
 
 def clean_text(raw_text):
+    """Clean the text and return a list of words"""
     words = raw_text.lower().split()
     clean_words = []
     for word in words:
@@ -17,6 +19,7 @@ def clean_text(raw_text):
     return clean_words
 
 def count_words(words):
+    """Count the number of occurrences of each word and return a dictionary"""
     word_count = {}
     for word in words:
         if word in word_count:
@@ -27,16 +30,19 @@ def count_words(words):
         
 
 def get_top_words (word_count, n):
+    """Return the n most common words"""
     sorted_word_count = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
     return sorted_word_count[:n]
 
 def display_top_words (word_count, n):
+    """Display the n most common words"""
     top_words = get_top_words(word_count, n)
     for word, count in top_words:
         print(f"{word}: {count}")
 
 
 def remove_stopwords(words):
+    """Remove stop words from a list of words"""
     stop_words_en = ["a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "is", "it", "of", "on", "or", "that", "the", "this", "to", "was", "were", "will", "with"]
     stop_words_fr = ["le", "la", "les", "un", "une", "des", "et", "ou", "de", "du", "à", "en", "est", "que", "qui", "pour", "dans", "sur", "avec", "ce", "cette", "ces", "il", "elle", "je", "tu", "nous", "vous", "se"]
     stop_words = stop_words_en + stop_words_fr
@@ -48,6 +54,7 @@ def remove_stopwords(words):
 
 
 def main():
+    """Run the word frequency analysis on a user-provided text file"""
     filename = input("Enter the name of the file: ")
     raw_text = open_file(filename)
     words = clean_text(raw_text)
