@@ -33,6 +33,23 @@ def delete_contact(contacts, name):
     print("Contact deleted")
 
 
+def update_contact(contacts, name):
+    contact = search_contact(contacts, name)
+    if contact is None:
+        print("Contact not found")
+        return
+    new_name = input(f"Name [{contact['name']}]: ")
+    new_phone = input(f"Phone [{contact['phone']}]: ")
+    new_email = input(f"Email [{contact['email']}]: ")
+    if new_name:
+        contact["name"] = new_name
+    if new_phone:
+        contact["phone"] = new_phone
+    if new_email:
+        contact["email"] = new_email
+    print("Contact updated")
+
+
 
 def main():
     contacts = []
@@ -42,7 +59,8 @@ def main():
         print("2. View contacts")
         print("3. Search contact")
         print("4. Delete contact")
-        print("5. Exit")
+        print("5. Update contact")
+        print("6. Exit")
         choice = input("Enter your choice: ")
         try:
             choice = int(choice)
@@ -66,6 +84,9 @@ def main():
             name = input("Enter name to delete: ")
             delete_contact(contacts, name)
         elif choice == 5:
+            name = input("Enter name to update: ")
+            update_contact(contacts, name)
+        elif choice == 6:
             break
         else:
             print("Invalid choice")
