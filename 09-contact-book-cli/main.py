@@ -112,6 +112,7 @@ def main():
             break
         else:
             print("Invalid choice")
+        print("-" * 50)
 
 
 if __name__ == "__main__":
