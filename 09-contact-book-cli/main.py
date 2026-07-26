@@ -1,8 +1,12 @@
+import json
+
+
 def get_contacts():
     name = input("Name: ")
     phone = input("Phone: ")
     email = input("Email: ")
     return name , phone , email
+
 
 def add_contact(contacts, name, phone, email):
     contact = {
@@ -19,10 +23,12 @@ def search_contact(contacts, name):
             return contact
     return None
 
+
 def print_contact(contact):
     print(f"Name: {contact['name']}")
     print(f"Phone: {contact['phone']}")
     print(f"Email: {contact['email']}")
+
 
 def delete_contact(contacts, name):
     contact = search_contact(contacts, name)
@@ -50,10 +56,23 @@ def update_contact(contacts, name):
     print("Contact updated")
 
 
+def save_contacts(contacts, filename):
+    with open(filename, "w") as f:
+        json.dump(contacts, f)
+    print("Contacts saved")
+
+
+def load_contacts(filename):
+    try:
+        with open(filename, "r") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+
 
 def main():
-    contacts = []
     print("Welcome to the contact book")
+    contacts = load_contacts("contacts.json")
     while True:
         print("1. Add contact")
         print("2. View contacts")
@@ -70,6 +89,7 @@ def main():
         if choice == 1:
             name, phone, email = get_contacts()
             add_contact(contacts, name, phone, email)
+            save_contacts(contacts, "contacts.json")
         elif choice == 2:
             for contact in contacts:
                 print_contact(contact)
@@ -83,9 +103,11 @@ def main():
         elif choice == 4:
             name = input("Enter name to delete: ")
             delete_contact(contacts, name)
+            save_contacts(contacts, "contacts.json")
         elif choice == 5:
             name = input("Enter name to update: ")
             update_contact(contacts, name)
+            save_contacts(contacts, "contacts.json")
         elif choice == 6:
             break
         else:
