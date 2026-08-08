@@ -24,9 +24,12 @@ def rotate_log():
             os.rename("app.log", "app.log.old")
 
 
+def main():
+    write_log("Server started", "INFO")
+    write_log("High memory usage detected", "WARNING")
+    write_log("Database connection failed", "ERROR")
+    write_log("Invalid entry test", "BLABLA")
+
 
 if __name__ == '__main__':
-    write_log('Hello world', 'INFO')
-    for i in range(1000):
-        write_log('Hello world', 'INFO')
-
+    main()
