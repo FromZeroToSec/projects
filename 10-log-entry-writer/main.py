@@ -1,6 +1,11 @@
 from datetime import datetime
 import os
 
+LOG_FILE = "app.log"
+BACKUP_FILE = "app.log.old"
+MAX_LOG_SIZE = 1000
+ALLOWED_LEVELS = ["INFO", "WARNING", "ERROR"]
+
 
 def write_log(message, level):
     """Write a log entry to the log file with the given level.
@@ -9,28 +14,37 @@ def write_log(message, level):
         message (str): The log message to write.
         level (str): The log level, one of "INFO", "WARNING", "ERROR".
     """
+    if level not in ALLOWED_LEVELS:
+        print(f'Invalid log level: {level}')
+        return
+
     rotate_log()
-    allowed_levels = ["INFO", "WARNING", "ERROR"]
-    if level in allowed_levels:
-        current_time = datetime.now()
-        formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
-        with open('app.log', 'a') as f:
+
+    current_time = datetime.now()
+    formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        with open(LOG_FILE, 'a') as f:
             f.write(f'[{formatted_time}] [{level}] {message}\n')
-    else:
-        print('Invalid log level')
+    except OSError as e:
+        print(f'Failed to write log: {e}')
 
 
 def get_logs_size():
-    """Return the current size of the log file in bytes."""
-    size = os.path.getsize('app.log')
-    return size
+    """Return the current size of the log file in bytes.
+
+    Returns 0 if the log file does not exist.
+    """
+    if not os.path.exists(LOG_FILE):
+        return 0
+    return os.path.getsize(LOG_FILE)
 
 
 def rotate_log():
-    """Rotate the log file if it exceeds the maximum size."""
-    if os.path.exists('app.log'):
-        if get_logs_size() > 1000:
-            os.rename("app.log", "app.log.old")
+    """Rotate the log file to a backup when it exceeds the maximum size."""
+    if get_logs_size() > MAX_LOG_SIZE:
+        if os.path.exists(BACKUP_FILE):
+            os.remove(BACKUP_FILE)
+        os.rename(LOG_FILE, BACKUP_FILE)
 
 
 def main():
