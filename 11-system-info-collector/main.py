@@ -13,6 +13,8 @@ def main():
     print(f"CPU usage: {psutil.cpu_percent(interval=1)}")
     print(f"Physical cores: {psutil.cpu_count(logical=False)}")
     print(f"Logical cores: {psutil.cpu_count(logical=True)}")
+    print(f"Memory usage: {psutil.virtual_memory().percent}%")
+    print(f"Total RAM (GB): {round(psutil.virtual_memory().total / (1024 ** 3), 2)}")
 
 
 
