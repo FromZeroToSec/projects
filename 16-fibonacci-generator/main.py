@@ -1,5 +1,7 @@
+import time
 
 def main():
+    start = time.time()
     a = 0
     b = 1
     for i in range(10):
@@ -8,6 +10,10 @@ def main():
         a = a + b
         b = old_a
         print(fibonacci_recursive(i))
+    print(f"Iterative time: {time.time() - start}")
+    start = time.time()
+    print(fibonacci_recursive(10))
+    print(f"Recursive time: {time.time() - start}")
 
 
 def fibonacci_recursive(n):
