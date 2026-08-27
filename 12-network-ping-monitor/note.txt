@@ -1,0 +1,16 @@
+NETWORK-PING-MONITOR - feuille de route
+
+Etape 1 - Ping une seule adresse
+Utiliser subprocess pour lancer la commande ping système sur une adresse, capturer le résultat (succès/échec).
+
+Etape 2 - Fonction réutilisable
+Transformer ça en fonction qui prend une adresse en paramètre et retourne True/False (disponible ou pas).
+
+Etape 3 - Plusieurs adresses
+Boucler sur une liste d'adresses/domaines, tester chacune, afficher un rapport clair.
+
+Etape 4 - Gestion du timeout
+S'assurer que le script n'attend pas indéfiniment si une adresse ne répond jamais.
+
+Etape 5 - README + docstrings
+Documentation finale du projet.
