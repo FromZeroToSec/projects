@@ -10,15 +10,10 @@ def check_ping(address):
 def main():
     address_list = []
     while True:
-        address = input("Which address do you want to check? ")
-        address_list.append(address)
-        continuer = input("Add another address? (Y/N): ")
-        if continuer == "Y".lower():
-            continue
-        elif continuer == "N".lower():
+        address = input("Which address do you want to check? (press Enter to stop): ")
+        if not address:
             break
-        else:
-            print("Invalid input")
+        address_list.append(address)
     for address in address_list:
         if check_ping(address):
             print(f"{address} is Available")
