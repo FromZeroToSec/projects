@@ -3,9 +3,11 @@ import subprocess
 
 def check_ping(address):
     """check if an address is reachable"""
-    result = subprocess.run(["ping", "-c", "1", address], capture_output=True, text=True)
-    return result.returncode == 0 # if the return code is 0, the address is reachable
-
+    try:
+        result = subprocess.run(["ping", "-c", "1", address], capture_output=True, text=True, timeout=5)
+        return result.returncode == 0
+    except subprocess.TimeoutExpired:
+        return False
 
 def main():
     address_list = []
