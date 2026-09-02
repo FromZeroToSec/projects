@@ -1,0 +1,6 @@
+Étape 2 — compter les caractères : une fonction qui prend le texte et renvoie son nombre de caractères.
+Étape 3 — compter les mots : une fonction qui split le texte et compte les mots.
+Étape 4 — compter les phrases : celle qu'on a commencée à préparer avec .count("."), .count("?"), .count("!").
+Étape 5 — fréquence des mots : comme dans word-counter, mais réutilisée ici.
+Étape 6 — ratio mots/phrases : calcul simple, division.
+Étape 7 — README + nettoyage.

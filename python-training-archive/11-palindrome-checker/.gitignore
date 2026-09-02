@@ -1,0 +1,22 @@
+`# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environnements virtuels
+venv/
+.env
+.venv/
+
+# Editeurs
+.vscode/
+.idea/
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Clés et secrets
+secret.key
+*.key`
