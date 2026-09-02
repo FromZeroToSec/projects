@@ -1,6 +1,7 @@
-# Python Training
+# Python Training (Archive)
 
-Python training exercises.
+Collection de 16 exercices d'algorithmique et de manipulation de données en Python, réalisés en dehors du portfolio principal `projects`. Conservés ici en sous-dossier avec leur historique de commits d'origine.
+
 
 ## Exercises
 
@@ -16,6 +17,9 @@ Python training exercises.
 | 08 | number-stats | Statistics calculator: min, max, average and sum from user input |
 | 09 | temperature-converter | CLI temperature converter between Celsius, Fahrenheit and Kelvin |
 | 10 | fizzbuzz-extended | FizzBuzz sequence generator with CLI input and error handling |
-| 11 | palindrome-checker | Palindrome detector with input normalization || 12 | anagram-detector | Anagram detector with input normalization and sorted comparison |
+| 11 | palindrome-checker | Palindrome detector with input normalization |
+| 12 | anagram-detector | Anagram detector with case and whitespace handling |
 | 13 | word-counter | Word frequency counter with top N display |
 | 14 | text-stats | Text analyzer: characters, words, sentences, word frequency |
+| 15 | number-to-words | Integer to English words converter |
+| 16 | fibonacci-generator | Recursive vs iterative Fibonacci with performance comparison |
