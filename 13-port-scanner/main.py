@@ -1,25 +1,17 @@
 import socket
+import sys
 
 
-host = "127.0.0.1"
-
-for port in range(1,1025):
-    #créer socket
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #tester connexion
-    result = s.connect_ex((host, port))
-    #fermer socket
+host = sys.argv[1]# get host from command line arguments
+for port in range(int(sys.argv[2]), int(sys.argv[3]) + 1) :# loop through ports
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)# create socket
+    result = s.connect_ex((host, port))# returns 0 if port is open
     s.close()
-    #si port ouvert:
-    if result == 0:
-        #chercher le service (try/except)
-        try:
-            service = socket.getservbyport(port, "tcp")
-        except OSError:
+    if result == 0: # if port is open
+        try:# find service
+            service = socket.getservbyport(port, "tcp")# get service
+        except OSError:# if service is not found
             service = "Unknown"
-    # afficher port + service + "open"
         print(f"{port} {service} open")
-    #sinon:
     else:
         print(f"{port} closed")
-
