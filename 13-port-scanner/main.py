@@ -1,5 +1,6 @@
 import socket
 import sys
+import time
 
 
 def scan_port(host, port):
@@ -20,6 +21,7 @@ def get_service(port):
     return service
 
 def main():
+    start_time = time.time()
     host = sys.argv[1]
     start_port = int(sys.argv[2])
     end_port = int(sys.argv[3])
@@ -27,7 +29,12 @@ def main():
         if scan_port(host, port):
             service = get_service(port)
             print(f"{port} {service} open")
+    end_time = time.time()
+    duration = end_time - start_time
+    print(f"Scan completed in {duration:.2f} seconds")
+
 
 
 if __name__ == "__main__":
     main()
+
