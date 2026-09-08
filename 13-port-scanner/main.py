@@ -5,11 +5,17 @@ import time
 
 def scan_port(host, port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    result = s.connect_ex((host, port))
-    s.close()
-    if result == 0:
-        return True
-    else:
+    timeout = 1
+    s.settimeout(timeout)
+    try:
+        result = s.connect_ex((host, port))
+        s.close()
+        if result == 0:
+            return True
+        else:
+            return False
+    except socket.gaierror:
+        print(f"Error: could not resolve host '{host}'")
         return False
 
 
