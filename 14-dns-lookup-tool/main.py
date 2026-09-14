@@ -13,6 +13,13 @@ def get_mx_record(domain):
     return mx_list
 
 
+def get_ns_record(domain):
+    ns_list = []
+    for record in dns.resolver.resolve(domain, "NS"):
+        ns_list.append(f"{record.target}")
+    return ns_list
+
+
 def main():
     try:
         domain = input("Enter a domain name: ")
@@ -26,6 +33,12 @@ def main():
             print(f"MX record: {mx}")
     except (dns.resolver.NoAnswer, dns.resolver.NXDOMAIN):
         print(f"No MX records found for {domain}.")
+    try:
+        ns_records = get_ns_record(domain)
+        for ns in ns_records:
+            print(f"NS record: {ns}")
+    except (dns.resolver.NoAnswer, dns.resolver.NXDOMAIN):
+        print(f"No NS records found for {domain}.")
 
 
 
