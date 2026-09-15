@@ -1,6 +1,6 @@
 import socket
 import dns.resolver
-
+import argparse
 
 def resolve_domain(domain):
     return socket.gethostbyname(domain)
@@ -22,7 +22,10 @@ def get_ns_record(domain):
 
 def main():
     try:
-        domain = input("Enter a domain name: ")
+        parser = argparse.ArgumentParser()
+        parser.add_argument("domain")
+        args = parser.parse_args()
+        domain = args.domain
         ip_address = resolve_domain(domain)
         print(f"The IP address for {domain} is: {ip_address}")
     except socket.gaierror:
